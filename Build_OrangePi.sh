@@ -8,11 +8,13 @@ TOP_DIR=`pwd`
 
 source "${TOP_DIR}"/lib/general.sh
 
-# Get root first
-get_root
+if cat /etc/*release | grep ^NAME | [ ! grep Arch ] || [ ! grep Manjaro ] then
+    # Get root first
+    get_root
 
-# Prepare running-tools
-prepare_tools
+    # Prepare running-tools
+    prepare_tools
+fi
 
 whiptail --title "Orange Pi Build System" --msgbox \
  "`figlet Orange Pi` It's funny to build your own Linux system,        Let's go to Linux world with Orange Pi." \
